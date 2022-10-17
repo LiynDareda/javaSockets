@@ -1,13 +1,11 @@
 package it.fi.itismeucci.barletti;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        
+    public static void main(String[] args){
+        ClientStr cliente = new ClientStr();
+        cliente.connetti();
+        cliente.comunica();
     }
+
 }

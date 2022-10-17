@@ -1,13 +1,13 @@
 package it.fi.itismeucci.barletti;
 
-/**
- * Hello world!
- *
- */
+
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+       ServerStr servente = new ServerStr();
+       servente.attendi();
+       servente.comunica();
     }
 }
