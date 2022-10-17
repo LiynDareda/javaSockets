@@ -1,9 +1,6 @@
 package it.fi.itismeucci.barletti;
 
 import java.net.*;
-
-import javax.sound.midi.SysexMessage;
-
 import java.io.*;
 
 public class ClientStr {
