@@ -15,9 +15,9 @@ public class ServerStr {
     {
       try {
           System.out.println("1 Server partito in esecuzione . . .");
-          server = new ServerSocket(19191);
+          if(server == null)
+            server = new ServerSocket(19191);
           client = server.accept();
-          server.close();
           inDalClient = new BufferedReader(new InputStreamReader(client.getInputStream()));
           outVersoClient = new DataOutputStream(client.getOutputStream());
       } catch (Exception e) {
