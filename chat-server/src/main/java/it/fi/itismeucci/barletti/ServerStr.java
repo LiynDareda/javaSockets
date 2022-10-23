@@ -31,16 +31,17 @@ public class ServerStr {
     public void comunica()
     {
         try {
-            System.out.println("3 benvenuto client, scrivi una frase e la trasformo in mauscolo. Attendo . . .");
-            stringaRicevuta = inDalClient.readLine();
-            System.out.println("6 ricevuta la stampa dal client : " + stringaRicevuta);
+            do{
+                System.out.println("3 benvenuto client, scrivi una frase e la trasformo in mauscolo. Attendo . . .");
+                stringaRicevuta = inDalClient.readLine();
+                System.out.println("6 ricevuta la stampa dal client : " + stringaRicevuta);
 
-            stringaModificata = stringaRicevuta.toUpperCase();
-            System.out.println("7 Invio la stringa modificata al client . . .");
-            outVersoClient.writeBytes(stringaModificata+'\n');
-
-            System.out.println("9 SERVER: fine elaborazione . . . buonanotte!");
-            client.close();
+                stringaModificata = stringaRicevuta.toUpperCase();
+                System.out.println("7 Invio la stringa modificata al client . . .");
+                outVersoClient.writeBytes(stringaModificata+'\n');
+                if(stringaModificata.equals("FINE"))
+                    client.close();
+            }while(!(stringaModificata.equals("FINE")));
         } catch (Exception e) {
             //TODO: handle exception
         }
