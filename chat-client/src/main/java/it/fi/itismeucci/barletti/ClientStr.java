@@ -36,21 +36,22 @@ public class ClientStr {
     public void comunica()
     {
         try {
-        do{
+        for(;;){
             System.out.println("4 . . . inserisci la stringa da trasmettere al server"+'\n');
             stringaUtente = tastiera.readLine();
             System.out.println("5 . . . invio la stringa al server e attendo . . .");
             outVersoServer.writeBytes(stringaUtente+'\n');
             stringaRicevutaDalServer = inDalServer.readLine();
-            System.out.println("8 . . . risposta dal server"+'\n'+stringaRicevutaDalServer);
 
-            if(stringaRicevutaDalServer.equals("FINE"))
+            if(stringaRicevutaDalServer.equals("FINE")){
                 mioSocket.close();
-        }while(!(stringaRicevutaDalServer.equals("FINE")));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Errore durante la comunicazione col server");
-            System.exit(1);
+                return;
+            }
+            if (stringaRicevutaDalServer.equals("SPEGNI")) {
+                return;
+            }
+            
+            System.out.println("8 . . . risposta dal server"+'\n'+stringaRicevutaDalServer);
         }
     }
 }
